@@ -20,24 +20,38 @@ sebelum keberhasilan pertama ketika p = 0,20 dari populasi menghadiri acara vaks
 mean Distribusi Geometrik dengan 10000 data random , prob = 0,20 dimana distribusi
 geometrik acak tersebut X = 3 ( distribusi geometrik acak () == 3 )
 
-    set.seed(10)
     mean(rgeom(n, p) == 3)
 
 * Pada RStudio terdapat fungsi `rgeom(n, p)` yang digunakan untuk melakukan random sebanyak n nilai dari distribusi geometrik dengan peluang suksenya adalah p, dengan nilai n = 10000 dan p = 0.2
-* Pada kasus ini menggunakan fungsi `set.seed()` agar nilai dari randomisasi yang dilakukan tidak berubah ubah, jika tidak menggunakan ini pun tidak masalah, namun nantinya setiap kita menjalankan program hasilnya akan selalu berubah.
 * Kemudian menggunakan fungsi `mean()` untuk menghitung rata-rata dari randomisasi nilai yang dilakukan kemudian tidak lupa juga untuk menambahkan bagian dari distribusi geometrik acak yang memiliki nilai X == 3 pada fungsi `mean()` ini.
 * Berikut merupakan bukti screenshoot dari program yang dijalankan
 
 
 ### 1c
 Bandingkan Hasil poin a dan b , apa kesimpulan yang bisa didapatkan?
-* Yang didapatkan dari poin a dan b adalah 
+* Yang didapatkan dari poin a dan b adalah jika a nilainya akan selalu tetap namun b dilakukan distribusi geometrik yang acak sehingga hasilnya akan selalu berubah ketika melakukan perhitungan.
 
 
 ### 1d
 Histogram Distribusi Geometrik , Peluang X = 3 gagal Sebelum Sukses Pertama
 
-
+    library(dplyr)
+    library(ggplot2)
+    data.frame(x = 0:10, prob = dgeom(0:10, p)) %>%
+        mutate(Failures = ifelse(x == n, n, "other")) %>%
+        ggplot(aes(x = factor(x), y = prob, fill = Failures)) + geom_col() +
+        geom_text(aes(label = round(prob,2), y = prob + 0.01),
+            position = position_dodge(0.9),
+            size = 3,
+            vjust = 0
+        ) +
+    labs(title = "Probability of X = 3 Failures Prior to First Success",
+       subtitle = "Geometric(.2)",
+       x = "Failures prior to first success (x)",
+       y = "Probability") 
+       
+* Pada soal ini nilai peluangnya sama dengan yang ada pada contoh yang diberikan pada publikasi RDocuments berikut https://rpubs.com/mpfoley73/458721
+        
 
 ### 1e
 Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Geometrik.
@@ -65,8 +79,24 @@ Peluang terdapat 4 pasien yang sembuh.
 ### 2b
 Gambarkan grafik histogram berdasarkan kasus tersebut.
 
+    library(dplyr)
+    library(ggplot2)
 
+    data.frame(x = 0:10, prob = dbinom(0:10, 20, 0.2)) %>%
+    mutate(pers = ifelse(x == n, n, "other")) %>%
+     ggplot(aes(x = factor(x), y = prob, fill = pers)) +
+    geom_col() +
+    geom_text(
+    aes(label = round(prob,2), y = prob + 0.01),
+    position = position_dodge(0.9),
+    size = 3,
+    vjust = 0
+    ) +
+    labs(title = "Probability of X = 4 recover",
+       x = "success (x)",
+       y = "Probability") 
 
+* Sama seperti halnya pada histogram pada nomo1 hanya berbeda pada variabel probnya yg menggunakan fungsi `dbinom()` dan nilai pada x nya
 
 ### 2c
 Nilai Rataan (μ) dan Varian (σ²) dari DistribusiBinomial.
@@ -94,14 +124,19 @@ Berapa peluang bahwa 6 bayi akan lahir di rumah sakit ini besok?
 simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama
 setahun (n = 365)
 
+    baby <- data.frame("data" = rpois(365, 4.5))
+    baby %>% ggplot() +
+    geom_histogram(aes(x = data, y = stat(count / sum(count)), fill = data == 6), binwidth = 1, color = 'black',) +
+    scale_x_continuous(breaks = 0:10) +
+    labs(title = 'Birth of a baby for a year', 
+       x = 'Born baby', 
+       y = 'Probability')
 
-
+* Pada histogram kali ini menggunakan fungsi `geom_histogram()` yang detail dari fungsi tersebut dapat dilihat pada bagian R Documentation dengan menuliskan `?geom_histogram` pada bagian console
 
 ### 3c
 dan bandingkan hasil poin a dan b , Apa kesimpulan yang bisa didapatkan
-
-
-
+* Poin a dan b hampir memiliki nilai yang sama yaitu sekitar 1.28~
 
 ### 3d
 Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Poisson.
@@ -110,7 +145,6 @@ Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Poisson.
     varians <- lamd
     
 * Nilai dari kedua rataan dan varian dari distribusi poison sama yaitu lambda itu sendiri, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
-
 
 
 ## Nomor 4
@@ -129,7 +163,9 @@ Fungsi Probabilitas dari Distribusi Chi-Square.
 ### 4b
 Histogram dari Distribusi Chi-Square dengan 100 data random.
 
+    hist(rchisq(n, df))
 
+* Pada histogram kali ini menggunakan fungsi `hist()` yang detailnya bisa dilihat pada bagian R Documentation dengan menuliskan `?geom_histogram` pada bagian console
 
 ### 4c
 Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Chi-Square.
@@ -147,17 +183,33 @@ Diketahui bilangan acak (random variable) berdistribusi exponential (λ = 3). Te
 ### 5a
 Fungsi Probabilitas dari Distribusi Exponensial
 
-
+    set.seed(1)
+    rexp(lamd)
+    
+ * Dengan menggunakan fungsi `set.seed()` agar nilai yang diperoleh tidak berubah ubah dari randomisasi nilai dan memanggil fungsi `rexp()` sebagai distribusi eksponensial 
+ * Detail dari fungsi tersebut dapat dilihat pada bagian R Documentation dengan menuliskan `rexp` pada bagian console
 
 ### 5b
 Histogram dari Distribusi Exponensial untuk 10, 100, 1000 dan 10000 bilangan random
 
-
+    hist(rexp(10))
+    hist(rexp(100))
+    hist(rexp(1000))
+    hist(rexp(10000))
+    
+* dengan memanggil fungsi `hist()` pada setiap bilangan random yang dipanggil 
+    
+    
 ### 5c
 Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Exponensial untuk n = 100 dan λ = 3
 Petunjuk:
 ● Gunakan set.seed(1)
 ● Gunakan fungsi bawaan R
+
+    rataan <- 1 / lamd
+    varian <- 1 / lamd^2
+
+* Hal ini karena nilai dari rataan dan varian dari distribusi geometrik adalah 1/lamda dan 1/lambda^2, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
 
 
 
@@ -184,18 +236,43 @@ data generate randomnya dalam bentuk grafik. Petunjuk(gunakan fungsi plot()).
   
   X2 = 6
 
+    set.seed(10)
+    random <- rnorm(n, mean, sd)
+    rataan <- mean(random)
+    rataan
+    x1 <- floor(rataan)
+    x1
+    x2 <- round(rataan)
+    x2
 
+    funprob <- pnorm(x2, mean, sd) - pnorm(x1, mean, sd)
+    funprob
+
+    z1 <- (x1-mean)/sd
+    z1
+    z2 <- (x2-mean)/sd
+    z2
+    
+    
 ### 6b
 Generate Histogram dari Distribusi Normal dengan breaks 50 dan format penamaan : 
 NRP_Nama_Probstat_{Nama Kelas}_DNhistogram
 
 Contoh : 312312312_Rola_Probstat_A_DNhistogram
 
+    hist(rnorm(n, mean, sd), breaks = 50, main = "5025201075_Izzati Mukhammad_Probstat_A_DNhistogram")
+    
+* Sesuai dengan format yang diminta berikut merupakan tampilan dari histogram fungis tersebut
+
 
 
 ### 6c
 Nilai Varian (σ²) dari hasil generate random nilai Distribusi Normal.
 
+    varian <- sd^2
+    varian
+    
+* Nilai dari varian dari distribusi normal adalah sd^2, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
 
 
 
