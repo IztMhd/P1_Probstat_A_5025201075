@@ -20,8 +20,9 @@ z1
 z2 <- (x2-mean)/sd
 z2
 
-#nomor 6b  ?
-hist(?, breaks = 50, main = "5025201075_Izzati Mukhammad_Probstat_A_DNhistogram")
+#nomor 6b
+hist(rnorm(n, mean, sd), breaks = 50, main = "5025201075_Izzati Mukhammad_Probstat_A_DNhistogram")
 
-#nomor 6c  ?
-var(rnorm(n, mean, sd))
+#nomor 6c
+varian <- sd^2
+varian
