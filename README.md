@@ -14,7 +14,7 @@ sebelum keberhasilan pertama ketika p = 0,20 dari populasi menghadiri acara vaks
  * Detail mengenai fungsi ini bisa dilihat pada bagian dokumentasi dengan menuliskan `?dgeom` pada bagian console
  * Dengan memasukan nilai x = 3 dan peluang suksesnya p = 0.2 maka didapatkanlah hasil sebagai berikut
 
-
+    ![1a!](img/1a.png)
 
 ### 1b
 mean Distribusi Geometrik dengan 10000 data random , prob = 0,20 dimana distribusi
@@ -26,11 +26,11 @@ geometrik acak tersebut X = 3 ( distribusi geometrik acak () == 3 )
 * Kemudian menggunakan fungsi `mean()` untuk menghitung rata-rata dari randomisasi nilai yang dilakukan kemudian tidak lupa juga untuk menambahkan bagian dari distribusi geometrik acak yang memiliki nilai X == 3 pada fungsi `mean()` ini.
 * Berikut merupakan bukti screenshoot dari program yang dijalankan
 
-
+    ![1b!](img/1b.png)
+    
 ### 1c
 Bandingkan Hasil poin a dan b , apa kesimpulan yang bisa didapatkan?
 * Yang didapatkan dari poin a dan b adalah jika a nilainya akan selalu tetap namun b dilakukan distribusi geometrik yang acak sehingga hasilnya akan selalu berubah ketika melakukan perhitungan.
-
 
 ### 1d
 Histogram Distribusi Geometrik , Peluang X = 3 gagal Sebelum Sukses Pertama
@@ -52,7 +52,8 @@ Histogram Distribusi Geometrik , Peluang X = 3 gagal Sebelum Sukses Pertama
        
 * Pada soal ini nilai peluangnya sama dengan yang ada pada contoh yang diberikan pada publikasi RDocuments berikut https://rpubs.com/mpfoley73/458721
         
-
+     ![1d!](img/1d.png)
+    
 ### 1e
 Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Geometrik.
 
@@ -60,7 +61,8 @@ Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Geometrik.
     varians <- (1-p)/p^2
 
 * Nilai dari rataan dan varian dari distribusi geometrik adalah 1/p dan (1-p)/p^2, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
-
+    
+     ![1e!](img/1e.png)
 
 ## Nomor 2
 Terdapat 20 pasien menderita Covid19 dengan peluang sembuh sebesar 0.2. Tentukan :
@@ -75,6 +77,7 @@ Peluang terdapat 4 pasien yang sembuh.
 * Detail mengenai fungsi ini bisa dilihat pada bagian dokumentasi dengan menuliskan `?dbinom` pada bagian console
 * Maka didapatkanlah hasil sebagai berikut
 
+     ![2a!](img/2a.png)
 
 ### 2b
 Gambarkan grafik histogram berdasarkan kasus tersebut.
@@ -98,6 +101,8 @@ Gambarkan grafik histogram berdasarkan kasus tersebut.
 
 * Sama seperti halnya pada histogram pada nomo1 hanya berbeda pada variabel probnya yg menggunakan fungsi `dbinom()` dan nilai pada x nya
 
+    ![2b!](img/2b.png)
+    
 ### 2c
 Nilai Rataan (μ) dan Varian (σ²) dari DistribusiBinomial.
 
@@ -105,7 +110,8 @@ Nilai Rataan (μ) dan Varian (σ²) dari DistribusiBinomial.
     varians <- n * p * (1-p)
 
 * Nilai dari rataan dan varian dari distribusi binomial adalah n * p dan n * P * q, dimana q = 1-p, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
-
+    
+    ![2c!](img/2c.png)
 
 ## Nomor 3
 Diketahui data dari sebuah tempat bersalin di rumah sakit tertentu menunjukkan rata-rata historis
@@ -120,6 +126,8 @@ Berapa peluang bahwa 6 bayi akan lahir di rumah sakit ini besok?
 * Detail mengenai fungsi ini bisa dilihat pada bagian dokumentasi dengan menuliskan `?dpois` pada bagian console
 * Pada soal ini x memiliki nilai sebesar 6 dan lambda sebesar 4.5, kita tinggal memasukan nilai tersebut pada bagian parameter fungsi yang ada dan didapatkanlah hasil sebegai berikut
 
+    ![3a!](img/3a.png)
+    
 ### 3b
 simulasikan dan buatlah histogram kelahiran 6 bayi akan lahir di rumah sakit ini selama
 setahun (n = 365)
@@ -134,6 +142,8 @@ setahun (n = 365)
 
 * Pada histogram kali ini menggunakan fungsi `geom_histogram()` yang detail dari fungsi tersebut dapat dilihat pada bagian R Documentation dengan menuliskan `?geom_histogram` pada bagian console
 
+    ![3b!](img/3b.png)
+    
 ### 3c
 dan bandingkan hasil poin a dan b , Apa kesimpulan yang bisa didapatkan
 * Poin a dan b hampir memiliki nilai yang sama yaitu sekitar 1.28~
@@ -146,6 +156,7 @@ Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Poisson.
     
 * Nilai dari kedua rataan dan varian dari distribusi poison sama yaitu lambda itu sendiri, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
 
+    ![3d!](img/3d.png)
 
 ## Nomor 4
 Diketahui nilai x = 2 dan v = 10. Tentukan:
@@ -159,6 +170,7 @@ Fungsi Probabilitas dari Distribusi Chi-Square.
 * Detail mengenai fungsi ini bisa dilihat pada bagian dokumentasi dengan menuliskan `?dchisq` pada bagian console
 *  dengan nilai x = 2 dan df = 10, kita tinggal memasukan nilai tersebut pada bagian parameter fungsi yang ada dan didapatkanlah hasil sebegai berikut
 
+    ![4a!](img/4a.png)
 
 ### 4b
 Histogram dari Distribusi Chi-Square dengan 100 data random.
@@ -167,6 +179,8 @@ Histogram dari Distribusi Chi-Square dengan 100 data random.
 
 * Pada histogram kali ini menggunakan fungsi `hist()` yang detailnya bisa dilihat pada bagian R Documentation dengan menuliskan `?geom_histogram` pada bagian console
 
+    ![4b!](img/4b.png)
+    
 ### 4c
 Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Chi-Square.
 
@@ -175,7 +189,7 @@ Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Chi-Square.
     
 * Nilai dari rataan dan varian dari distribusi chi-square adalah v nya itu sendiri dan v * 2, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
 
-
+    ![4c!](img/4c.png)
 
 ## Nomor 5
 Diketahui bilangan acak (random variable) berdistribusi exponential (λ = 3). Tentukan
@@ -189,6 +203,8 @@ Fungsi Probabilitas dari Distribusi Exponensial
  * Dengan menggunakan fungsi `set.seed()` agar nilai yang diperoleh tidak berubah ubah dari randomisasi nilai dan memanggil fungsi `rexp()` sebagai distribusi eksponensial 
  * Detail dari fungsi tersebut dapat dilihat pada bagian R Documentation dengan menuliskan `rexp` pada bagian console
 
+    ![5a!](img/5a.png)
+
 ### 5b
 Histogram dari Distribusi Exponensial untuk 10, 100, 1000 dan 10000 bilangan random
 
@@ -199,6 +215,10 @@ Histogram dari Distribusi Exponensial untuk 10, 100, 1000 dan 10000 bilangan ran
     
 * dengan memanggil fungsi `hist()` pada setiap bilangan random yang dipanggil 
     
+    ![5b.1!](img/5b.1.png)
+    ![5b.2!](img/5b.2.png)
+    ![5b.3!](img/5b.3.png)
+    ![5b.4!](img/5b.4.png)
     
 ### 5c
 Nilai Rataan (μ) dan Varian (σ²) dari Distribusi Exponensial untuk n = 100 dan λ = 3
@@ -211,7 +231,7 @@ Petunjuk:
 
 * Hal ini karena nilai dari rataan dan varian dari distribusi geometrik adalah 1/lamda dan 1/lambda^2, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
 
-
+   ![5c!](img/5c.png)
 
 ## Nomor 6
 Diketahui generate random nilai sebanyak 100 data, mean = 50, sd = 8. Tentukan
@@ -253,6 +273,7 @@ data generate randomnya dalam bentuk grafik. Petunjuk(gunakan fungsi plot()).
     z2 <- (x2-mean)/sd
     z2
     
+   ![6a!](img/6a.png)
     
 ### 6b
 Generate Histogram dari Distribusi Normal dengan breaks 50 dan format penamaan : 
@@ -264,7 +285,7 @@ Contoh : 312312312_Rola_Probstat_A_DNhistogram
     
 * Sesuai dengan format yang diminta berikut merupakan tampilan dari histogram fungis tersebut
 
-
+     ![6b!](img/6b.png)
 
 ### 6c
 Nilai Varian (σ²) dari hasil generate random nilai Distribusi Normal.
@@ -274,8 +295,4 @@ Nilai Varian (σ²) dari hasil generate random nilai Distribusi Normal.
     
 * Nilai dari varian dari distribusi normal adalah sd^2, jadi kita bisa langsung melakukan perhitungan dan didapatkanlah hasil sebagai berikut
 
-
-
-
-
-
+     ![6c!](img/6c.png)
